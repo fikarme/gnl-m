@@ -6,7 +6,7 @@
 /*   By: akdemir <akdemir@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:44:52 by akdemir           #+#    #+#             */
-/*   Updated: 2023/07/30 19:40:15 by akdemir          ###   ########.fr       */
+/*   Updated: 2023/08/02 16:58:14 by akdemir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 char	*ft_read(char *str, int fd)
 {
-	char	*temp;
-	int		byte;
+	char	*tmp;
+	int		byt;
 
-	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	byte = 1;
-	while (!new_check(str) && byte != 0)
+	tmp = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	byt = 1;
+	while (!nlcheck(str) && byt != 0)
 	{
-		byte = read(fd, temp, BUFFER_SIZE);
-		if (byte == -1)
+		byt = read(fd, tmp, BUFFER_SIZE);
+		if (byt == -1)
 		{
 			if (str)
 				free(str);
-			free(temp);
+			free(tmp);
 			return (NULL);
 		}
-		temp[byte] = '\0';
-		str = ft_strjoin_gnl(str, temp);
+		tmp[byt] = '\0';
+		str = ft_strjoin(str, tmp);
 	}
-	free(temp);
+	free(tmp);
 	return (str);
 }
 
@@ -47,7 +47,7 @@ char	*ft_getline(char *s)
 			break ;
 	if (s[i] == '\n')
 		i++;
-	arr = malloc(sizeof(char) * (i + 1));
+	arr = (char *)malloc(sizeof(char) * (i + 1));
 	if (!arr)
 		return (NULL);
 	i = 0;
@@ -67,7 +67,7 @@ char	*ft_getline(char *s)
 
 char	*ft_cutline(char *str)
 {
-	char	*cuttedline;
+	char	*cline;
 	int		start; 
 	int		len;
 	int		i;
@@ -85,9 +85,9 @@ char	*ft_cutline(char *str)
 		free(str);
 		return (NULL);
 	}
-	cuttedline = ft_substr(str, start, len);
+	cline = ft_substr(str, start, len);
 	free (str);
-	return (cuttedline);
+	return (cline);
 }
 
 char	*get_next_line(int fd)

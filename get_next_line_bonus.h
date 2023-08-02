@@ -6,7 +6,7 @@
 /*   By: akdemir <akdemir@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:44:27 by akdemir           #+#    #+#             */
-/*   Updated: 2023/07/30 19:40:21 by akdemir          ###   ########.fr       */
+/*   Updated: 2023/08/02 16:58:27 by akdemir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);
 char	*ft_substr(char *s, int start, int len);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strjoin(char *s1, char *s2);
 char	*ft_getline(char *s);
 char	*ft_cutline(char *str);
-int		new_check(const char *s);
+int		nlcheck(const char *s);
 char	*ft_read(char *str, int fd);
 
 #endif

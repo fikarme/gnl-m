@@ -6,7 +6,7 @@
 /*   By: akdemir <akdemir@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:39:14 by akdemir           #+#    #+#             */
-/*   Updated: 2023/07/30 19:43:07 by akdemir          ###   ########.fr       */
+/*   Updated: 2023/08/02 16:58:46 by akdemir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_read(char *str, int fd)
 	}
 	free(tmp);
 	return (str);
-}
+} 
 
 char	*ft_getline(char *s)
 {
@@ -67,7 +67,7 @@ char	*ft_getline(char *s)
 
 char	*ft_cutline(char *str)
 {
-	char	*cuttedline;
+	char	*cline;
 	int		start; 
 	int		len;
 	int		i;
@@ -85,9 +85,9 @@ char	*ft_cutline(char *str)
 		free(str);
 		return (NULL);
 	}
-	cuttedline = ft_substr(str, start, len);
+	cline = ft_substr(str, start, len);
 	free (str);
-	return (cuttedline);
+	return (cline);
 }
 
 char	*get_next_line(int fd)

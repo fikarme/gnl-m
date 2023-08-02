@@ -6,7 +6,7 @@
 /*   By: akdemir <akdemir@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 16:44:08 by akdemir           #+#    #+#             */
-/*   Updated: 2023/07/30 19:40:24 by akdemir          ###   ########.fr       */
+/*   Updated: 2023/08/02 16:58:34 by akdemir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-int	new_check(const char *s)
+int	nlcheck(const char *s)
 {
 	int	i;
 
@@ -44,13 +44,13 @@ char	*ft_substr(char *s, int start, int len)
 {
 	char	*p;
 	int		i;
-	int		s_len;
+	int		slen;
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (len > s_len - start)
-		len = s_len - start;
+	slen = ft_strlen(s);
+	if (len > slen - start)
+		len = slen - start;
 	p = (char *)malloc(sizeof(char) * (len + 1));
 	if (!p)
 		return (NULL);
@@ -64,7 +64,7 @@ char	*ft_substr(char *s, int start, int len)
 	return (p);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
@@ -72,19 +72,19 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 
 	if (!s1)
 	{
-		s1 = malloc(1 * sizeof(char));
+		s1 = (char *)malloc(sizeof(char) * 1);
 		*s1 = '\0';
 	}
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
 	i = -1;
-	while (*(s1 + ++i))
-		*(str + i) = *(s1 + i);
+	while (s1[++i])
+		str[i] = s1[i];
 	j = -1;
-	while (*(s2 + ++j))
-		*(str + i + j) = *(s2 + j);
-	*(str + i + j) = '\0';
+	while (s2[++j])
+		str[i + j] = s2[j];
+	str[i + j] = '\0';
 	free(s1);
 	return (str);
 }
